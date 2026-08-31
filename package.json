@@ -1,0 +1,44 @@
+{
+  "name": "cypress-cucumber-pom-framework",
+  "version": "1.0.0",
+  "description": "Cypress + Cucumber (BDD) end-to-end framework on the Page Object Model.",
+  "author": "Hafiz Shahbaz Hanif <shahbazhanif87@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "cy:open": "cypress open",
+    "pretest": "rimraf cypress/reports",
+    "test": "cypress run",
+    "posttest": "node scripts/report.js",
+    "test:smoke": "cypress run --env tags=@smoke",
+    "test:chrome": "cypress run --browser chrome",
+    "report": "node scripts/report.js",
+    "lint": "eslint .",
+    "format": "prettier --write \"**/*.{js,json,md,feature}\""
+  },
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^27.0.0",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.4",
+    "cypress": "^15.21.1",
+    "esbuild": "^0.24.0",
+    "eslint": "^8.57.1",
+    "eslint-plugin-cypress": "^3.5.0",
+    "multiple-cucumber-html-reporter": "^3.9.2",
+    "prettier": "^3.3.3",
+    "rimraf": "^5.0.10"
+  },
+  "cypress-cucumber-preprocessor": {
+    "stepDefinitions": [
+      "cypress/e2e/step_definitions/**/*.{js,ts}"
+    ],
+    "filterSpecs": true,
+    "omitFiltered": true,
+    "json": {
+      "enabled": true,
+      "output": "cypress/reports/cucumber/cucumber-report.json"
+    },
+    "messages": {
+      "enabled": true,
+      "output": "cypress/reports/cucumber/messages.ndjson"
+    }
+  }
+}
