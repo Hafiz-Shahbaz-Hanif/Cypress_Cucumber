@@ -3,7 +3,6 @@ import LoginPage from '../../pages/LoginPage';
 import InventoryPage from '../../pages/InventoryPage';
 
 Given('the login page is open', () => {
-  cy.resetAppState();
   LoginPage.visit();
 });
 
@@ -22,4 +21,13 @@ Then('the inventory page is shown with {int} products', (count) => {
 
 Then('I see the login error {string}', (message) => {
   LoginPage.expectError(message);
+});
+
+When('I sign out', () => {
+  InventoryPage.logout();
+});
+
+Then('the login page is shown', () => {
+  cy.location('pathname').should('eq', '/');
+  LoginPage.elements.loginButton().should('be.visible');
 });
