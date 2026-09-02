@@ -27,24 +27,45 @@ on the **Page Object Model**, covering both a **web UI** and a **REST API**.
   thin and delegate every interaction to a Page Object.
 - **UI + API in one suite.** UI journeys (login, sorting, cart, checkout) plus API
   contract checks with `cy.request` and aliases.
-- **Data-driven** via `Scenario Outline` (login permutations, four sort orders).
+- **Data-driven at scale.** ~145 scenarios, most as `Scenario Outline` tables —
+  all 6 SauceDemo products through add / remove / detail / buy; 20 API create
+  round-trips; 17 update/patch; 10 filter lookups.
 - **Deterministic runs.** `retries` in run mode, `cy.clearLocalStorage()` between
   scenarios (SauceDemo persists the cart), and app-error suppression scoped to
   the one benign SauceDemo exception.
 - **Tag filtering.** `cypress run --env tags=@smoke` (`filterSpecs` + `omitFiltered`).
+- **Developed with an agentic-AI workflow.** `CLAUDE.md` plus `.claude/` subagents
+  (`failure-triager`, `page-object-author`) and skills (`new-bdd-scenario`, `report-triage`).
+
+## Coverage
+
+| Feature | Scenarios | Notes |
+|---|---|---|
+| `login` | 11 | 5 user types reach the catalogue, bad-input outline, sign-out |
+| `inventory` | 25 | sort (4), add / add-remove / shelf-price per product (6 each) |
+| `product` | 14 | detail name/price/description and add-to-cart per product |
+| `cart` | 16 | listed / removed per product, prices match catalogue |
+| `checkout` | 13 | buy each product with 8% tax + total maths, field validation, cancels |
+| `api_booking` | 6 | CRUD lifecycle, health, shape + response-time |
+| `api_booking_create` | 20 | data-driven create + read-back |
+| `api_booking_update` | 17 | full replace + single-field patch |
+| `api_booking_filter` | 10 | `GET /booking?firstname=&lastname=` |
+| `api_booking_negative` | 9 | missing fields, 404s, no-token 403 |
+| `api_booking_auth` | 6 | token issued / rejected |
 
 ## Project structure
 
 ```
+CLAUDE.md  .claude/{agents,skills}       # agentic-AI workflow config
 cypress/
 ├── e2e/
-│   ├── features/                # Gherkin specs (login, cart_checkout, api_booking)
-│   └── step_definitions/        # one module per feature area
-├── pages/                       # Page Object Model (LoginPage, InventoryPage, ...)
+│   ├── features/                # Gherkin: login, inventory, product, cart, checkout, api_booking*
+│   └── step_definitions/        # one module per feature area (thin)
+├── pages/                       # Page Object Model (Login, Inventory, Product, Cart, Checkout)
 ├── support/
-│   ├── e2e.js
-│   └── commands.js              # cross-cutting commands only
-└── fixtures/
+│   ├── e2e.js  commands.js      # cross-cutting only
+│   └── bookingApi.js            # restful-booker cy.request helpers
+└── fixtures/products.js         # SauceDemo catalogue + prices
 scripts/report.js                # builds the HTML report from cucumber JSON
 cypress.config.js                # cucumber + esbuild wiring
 ```
