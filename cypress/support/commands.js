@@ -3,8 +3,14 @@
  * Objects under `cypress/pages/`, not here.
  */
 
-Cypress.Commands.add('resetAppState', () => {
-  // SauceDemo persists the cart and session in localStorage between visits.
-  cy.clearLocalStorage();
-  cy.clearCookies();
+/**
+ * Guarantee a clean SauceDemo session and empty cart. Cypress test isolation
+ * clears storage, but SauceDemo keeps the cart under `cart-contents` and only
+ * repaints once reloaded - so clear it explicitly after landing on a page.
+ */
+Cypress.Commands.add('clearSauceCart', () => {
+  cy.window().then((win) => {
+    win.localStorage.removeItem('cart-contents');
+  });
+  cy.reload();
 });
