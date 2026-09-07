@@ -18,8 +18,11 @@ report.generate({
   reportName: 'SauceDemo & restful-booker regression',
   displayDuration: true,
   metadata: {
-    browser: { name: 'chrome', version: 'latest' },
-    device: 'CI runner',
+    browser: {
+      name: process.env.REPORT_BROWSER || 'chrome',
+      version: process.env.REPORT_BROWSER_VERSION || 'latest',
+    },
+    device: process.env.REPORT_DEVICE || 'CI runner',
     platform: { name: process.platform },
   },
 });

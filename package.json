@@ -10,6 +10,8 @@
     "test": "cypress run",
     "posttest": "node scripts/report.js",
     "test:smoke": "cypress run --env tags=@smoke",
+    "test:ui": "cypress run --env tags=@ui",
+    "test:api": "cypress run --env tags=@api",
     "test:chrome": "cypress run --browser chrome",
     "report": "node scripts/report.js",
     "lint": "eslint .",
