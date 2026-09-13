@@ -100,6 +100,8 @@ building this framework.
 `.github/workflows/ci.yml` runs the suite on Chrome via `cypress-io/github-action`, then
 builds the HTML report and uploads it with videos and screenshots.
 
+See [`CHANGELOG.md`](CHANGELOG.md) for what shipped and when.
+
 ---
 
 ## Author
