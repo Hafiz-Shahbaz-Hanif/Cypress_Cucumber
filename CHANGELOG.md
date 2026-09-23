@@ -2,6 +2,11 @@
 
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## 2026-09-23
+
+### Fixed
+- `package.json` `engines.node` now matches `.nvmrc` (`>=20`) — it was undeclared.
+
 ## 2026-09-22
 
 ### Added

@@ -4,6 +4,9 @@
   "description": "Cypress + Cucumber (BDD) end-to-end framework on the Page Object Model.",
   "author": "Hafiz Shahbaz Hanif <shahbazhanif87@gmail.com>",
   "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "cy:open": "cypress open",
     "pretest": "rimraf cypress/reports",
