@@ -21,7 +21,7 @@
     "format": "prettier --write \"**/*.{js,json,md,feature}\""
   },
   "devDependencies": {
-    "@badeball/cypress-cucumber-preprocessor": "^27.0.0",
+    "@badeball/cypress-cucumber-preprocessor": "^28.0.0",
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.4",
     "cypress": "^15.21.1",
     "esbuild": "^0.24.0",
