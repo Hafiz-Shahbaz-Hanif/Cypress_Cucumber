@@ -2,6 +2,12 @@
 
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## 2026-09-24
+
+### Fixed
+- README's "~145 scenarios" line was stale; the coverage table already summed
+  to the correct 147 — recounted directly from every `.feature` file to confirm.
+
 ## 2026-09-23
 
 ### Fixed

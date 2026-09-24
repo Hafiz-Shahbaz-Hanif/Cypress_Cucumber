@@ -27,7 +27,7 @@ on the **Page Object Model**, covering both a **web UI** and a **REST API**.
   thin and delegate every interaction to a Page Object.
 - **UI + API in one suite.** UI journeys (login, sorting, cart, checkout) plus API
   contract checks with `cy.request` and aliases.
-- **Data-driven at scale.** ~145 scenarios, most as `Scenario Outline` tables —
+- **Data-driven at scale.** ~147 scenarios, most as `Scenario Outline` tables —
   all 6 SauceDemo products through add / remove / detail / buy; 20 API create
   round-trips; 17 update/patch; 10 filter lookups.
 - **Deterministic runs.** `retries` in run mode, `cy.clearLocalStorage()` between
