@@ -4,6 +4,8 @@
 ![Cypress](https://img.shields.io/badge/Cypress-15.x-17202C?logo=cypress&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES2022-F7DF1E?logo=javascript&logoColor=black)
 ![Cucumber](https://img.shields.io/badge/BDD-Cucumber%2FGherkin-23D96C?logo=cucumber&logoColor=white)
+![Report](https://img.shields.io/badge/Report-Cucumber%20HTML-FF7043)
+![Scenarios](https://img.shields.io/badge/scenarios-147-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-blue)
 
 An end-to-end test framework built with **Cypress** and **Cucumber** (`@badeball/cypress-cucumber-preprocessor`),
