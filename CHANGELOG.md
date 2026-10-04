@@ -2,6 +2,14 @@
 
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## 2026-10-04
+
+### Fixed
+- README and `CLAUDE.md` now document the `test:ui`, `test:api` and `test:chrome`
+  scripts — they existed in `package.json` (the first two since 2026-09-07) but
+  were listed in neither doc. Every UI feature is tagged `@ui` and every API
+  feature `@api`, so the filters cover all 11 feature files between them.
+
 ## 2026-09-25
 
 ### Added

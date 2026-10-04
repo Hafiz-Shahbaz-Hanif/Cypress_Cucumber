@@ -84,6 +84,9 @@ npx cypress verify
 ```bash
 npm test                 # headless run, then build the HTML report
 npm run test:smoke       # only @smoke scenarios
+npm run test:ui          # only @ui (SauceDemo) features
+npm run test:api         # only @api (restful-booker) features
+npm run test:chrome      # full run in Chrome instead of the bundled Electron
 npm run cy:open          # interactive runner
 npx cypress run --spec "cypress/e2e/features/api_booking.feature"
 ```

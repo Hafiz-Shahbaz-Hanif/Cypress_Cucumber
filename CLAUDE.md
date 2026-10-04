@@ -52,6 +52,9 @@ cypress.config.js
 ```bash
 npm test                 # full run + HTML report
 npm run test:smoke       # --env tags=@smoke
+npm run test:ui          # --env tags=@ui   (every UI feature carries @ui)
+npm run test:api         # --env tags=@api  (every API feature carries @api)
+npm run test:chrome      # full run in Chrome
 npm run cy:open          # interactive
 npx cypress run --spec "cypress/e2e/features/api_booking.feature"
 npm run lint
