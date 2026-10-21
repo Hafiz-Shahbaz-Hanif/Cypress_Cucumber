@@ -2,6 +2,20 @@
 
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## 2026-10-21
+
+### Changed
+- Dependabot config tuned after its first weekly run opened ~9 separate PRs:
+  `cypress`, `@badeball/*`, `@bahmutov/*` and `esbuild` now move in one PR (the
+  Cucumber preprocessor and bundler have to agree with the Cypress version); the
+  remaining minor/patch bumps are batched; GitHub Actions updates are batched;
+  commit messages use the repo's `chore(deps)` / `ci(deps)` convention.
+- Major bumps of `eslint` and `eslint-plugin-cypress` are no longer auto-proposed:
+  the lint config is `.eslintrc.json`, ESLint 10 no longer ships the eslintrc
+  loader, and eslint-plugin-cypress 4+ requires ESLint 9+. These need a deliberate
+  flat-config migration. The config was validated against the official Dependabot
+  JSON schema.
+
 ## 2026-10-04
 
 ### Fixed
